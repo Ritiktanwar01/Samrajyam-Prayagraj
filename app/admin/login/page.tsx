@@ -91,13 +91,6 @@ export default function AdminLogin() {
               )}
             </Button>
           </form>
-
-          {/* Demo Credentials */}
-          <div className="mt-6 p-4 bg-accent/10 rounded-lg border border-accent/30">
-            <p className="text-sm font-semibold text-accent mb-2">Demo Credentials:</p>
-            <p className="text-xs text-muted-foreground mb-1"><span className="font-medium">Email:</span> admin@samrajyam.com</p>
-            <p className="text-xs text-muted-foreground"><span className="font-medium">Password:</span> admin123</p>
-          </div>
         </div>
       </div>
     </main>
