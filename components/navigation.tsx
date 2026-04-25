@@ -23,8 +23,8 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-            <Image src="/logo.png" alt="Samrajyam Prayagraj" width={40} height={40} className="h-10 w-auto rounded" />
-            <div className="hidden sm:block">
+            <Image src="/new_logo.png" alt="Samrajyam Prayagraj" width={60} height={60} className="h-22 w-16" />
+            <div className=" sm:block">
               <div className="font-bold text-lg text-primary">Samrajyam</div>
               <div className="text-xs text-muted-foreground">Prayagraj</div>
             </div>
@@ -52,10 +52,10 @@ export default function Navigation() {
           {/* CTA Button & Mobile Menu */}
           <div className="flex items-center gap-4">
   
-            <Button onClick={() => redirectToWhatsApp({ phoneNumber: '+919876543210', message: 'Hello, I would like to know more about the Samrajyam project.' })} className="hidden sm:inline-flex bg-accent hover:bg-accent/90 text-accent-foreground">
+            {/* <Button onClick={() => redirectToWhatsApp({ phoneNumber: '+919876543210', message: 'Hello, I would like to know more about the Samrajyam project.' })} className="hidden sm:inline-flex bg-accent hover:bg-accent/90 text-accent-foreground">
               <MessageCircle className='text-white size-5'/>
               <span className="ml-2 text-white">Let's Connect</span>
-            </Button>
+            </Button> */}
             <button 
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden p-2 text-foreground hover:text-accent transition-colors"
@@ -84,9 +84,9 @@ export default function Navigation() {
               <Link href="/contact" onClick={() => setIsOpen(false)} className="block text-foreground hover:text-accent hover:bg-secondary px-3 py-2 rounded-md text-base font-medium transition-colors">
                 Contact
               </Link>
-              <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground mt-2">
+              {/* <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground mt-2">
                 Schedule Visit
-              </Button>
+              </Button> */}
             </div>
           </div>
         )}

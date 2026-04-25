@@ -58,7 +58,7 @@ export default function About() {
               </div>
             </div>
             <div className="bg-muted rounded-lg h-96 flex items-center justify-center">
-              <img src="/placeholder.svg?height=400&width=600" alt="Aadharshila Group" className="w-full h-full object-cover rounded-lg" />
+              <img src="/aadharshila.png" alt="Aadharshila Group" className="w-full h-full object-fill rounded-lg" />
             </div>
           </div>
         </div>

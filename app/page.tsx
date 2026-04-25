@@ -10,8 +10,9 @@ import Footer from '@/components/footer'
 import { Toaster } from '@/components/ui/toaster'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { ArrowRight, Building2, Users, MapPin, ChevronDown } from 'lucide-react'
+import { ArrowRight, Building2, Users, MapPin, ChevronDown, Phone } from 'lucide-react'
 import Image from 'next/image'
+import Search from '@/components/Search'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -29,9 +30,10 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image 
-            src="/images/view1.webp" 
+            src="/images/view.jpeg" 
             alt="Samrajyam Prayagraj Project" 
-            fill 
+            width={1200}
+            height={700}
             className="object-cover opacity-40"
             priority
           />
@@ -64,10 +66,16 @@ export default function Home() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white">
+        {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white">
           <ChevronDown className="w-6 h-6" />
-        </div>
+        </div> */}
       </section>
+
+      <Search />
+
+      <Button className='flex items-center justify-center w-16 h-16 fixed right-2 top-[70%] bg-accent'>
+        <Phone  size={88} width={22} height={22} className='size-6'/>
+      </Button>
 
       {/* Project Highlights Section */}
       <Highlights />
@@ -85,7 +93,7 @@ export default function Home() {
             <div className="order-2 md:order-1">
               <div className="relative h-64 sm:h-80 md:h-96 lg:h-[450px] rounded-lg overflow-hidden shadow-lg">
                 <Image 
-                  src="/placeholder.svg?height=450&width=600" 
+                  src="/company people.jpg" 
                   alt="Aadharshila Group" 
                   fill 
                   className="object-cover"
