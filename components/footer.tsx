@@ -2,9 +2,49 @@
 
 import Link from 'next/link'
 import { Building2, MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { Facebook,Instagram,Youtube } from 'lucide-react'
+import { link } from 'fs'
+import { useState } from 'react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+
+  const [ newsEmail, setNewsEmail ] = useState("")
+
+  const socialMediaIcons = (social :{social: string}) => {
+    if (social.social === 'Facebook') {
+      return <Facebook className="w-5 h-5" />;
+    }
+    if (social.social === 'Instagram') {
+      return <Instagram className="w-5 h-5" />;
+    }
+    if (social.social === 'Youtube') {
+      return <Youtube className="w-5 h-5" />;
+    }
+    return null;
+  }
+
+  const SubscribeTONewsLetter = async () => {
+    if (!newsEmail) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    try {
+      
+      const request = await fetch(process.env.NEXT_PUBLIC_API_URL + "/newsletter/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: newsEmail
+        })
+      });
+    } catch (error) {
+      console.error("Error subscribing to newsletter:", error);
+    }
+  }
 
   return (
     <footer className="bg-foreground text-white">
@@ -22,13 +62,15 @@ export default function Footer() {
               Your dream home awaits at Samrajyam - Raipur's most iconic residential landmark.
             </p>
             <div className="flex gap-3">
-              {['Facebook', 'Twitter', 'Instagram', 'LinkedIn'].map((social) => (
+              {[{name:'Facebook',link:"https://www.facebook.com/share/1BGapGUtbP/"}, {name:'Youtube',link:"https://www.youtube.com/@SamrajyamsPrayagraj"}, {name:'Instagram',link:"https://www.instagram.com/samrajyamprayagraj?igsh=MW5jMmFxeXk1ZTE4NQ=="}].map((social) => (
+                <Link key={social.name} href={social.link ? social.link : "#"} target="_blank" rel="noopener noreferrer">
                 <button
-                  key={social}
+                  
                   className="w-9 h-9 rounded-full bg-white/10 hover:bg-primary transition-colors flex items-center justify-center text-xs font-bold"
                 >
-                  {social[0]}
+                  {socialMediaIcons({social: social.name})}
                 </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -62,7 +104,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <Phone className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                <span>+91-XXX-XXXX-XXXX</span>
+                <span>+91-910-910-7012, +91-910-910-7013</span>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
@@ -106,11 +148,15 @@ export default function Footer() {
             {/* Newsletter */}
             <div className="flex gap-2">
               <input
+              onChange={(e)=>setNewsEmail(e.target.value)}
                 type="email"
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-2 rounded bg-white/10 border border-white/20 text-white placeholder-gray-400 text-sm focus:outline-none focus:border-primary"
               />
-              <button className="px-6 py-2 bg-primary hover:bg-primary/90 rounded text-white text-sm font-semibold transition-colors">
+              <button 
+                onClick={SubscribeTONewsLetter}
+                className="px-6 py-2 bg-primary hover:bg-primary/90 rounded text-white text-sm font-semibold transition-colors"
+              >
                 Subscribe
               </button>
             </div>

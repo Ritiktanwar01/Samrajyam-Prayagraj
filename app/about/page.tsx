@@ -1,6 +1,7 @@
 import Navigation from '@/components/navigation';
 import  Footer  from '@/components/footer';
 import { Award, Target, Eye, Users } from 'lucide-react';
+import { url } from 'inspector';
 
 export const metadata = {
   title: 'About Us - Aadharshila Group | Real Estate Company',
@@ -156,33 +157,42 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-0">
             {[
               {
                 title: 'Integrity',
                 description: 'We believe in transparency, honesty, and ethical practices in all our dealings.',
-                icon: '✓',
+                icon: '/images/core-value-integrity.jpg',
               },
               {
-                title: 'Quality',
+                title: 'Agility',
                 description: 'Excellence is not a destination but a journey. We never compromise on quality.',
-                icon: '★',
+                icon: '/images/core-value-agility.jpg',
               },
               {
-                title: 'Innovation',
+                title: 'Empthy',
                 description: 'We constantly innovate to create better homes and sustainable living solutions.',
-                icon: '⚡',
+                icon: '/images/core-value-empathy.jpg',
               },
               {
-                title: 'Community',
+                title: 'Commitment',
                 description: 'We build communities, not just buildings. We create spaces where people connect.',
-                icon: '👥',
+                icon: '/images/core-value-commitment.jpg',
+              },
+              {
+                title: 'Seamlessness',
+                description: 'We build communities, not just buildings. We create spaces where people connect.',
+                icon: '/images/core-value-seamlessness.jpg',
+              },
+              {
+                title: 'Speed',
+                description: 'We build communities, not just buildings. We create spaces where people connect.',
+                icon: '/images/core-value-speed.jpg',
               },
             ].map((value, index) => (
-              <div key={index} className="bg-card rounded-lg border border-border p-6 text-center hover:shadow-lg transition-shadow">
-                <div className="text-4xl mb-3">{value.icon}</div>
-                <h3 className="text-xl font-bold text-foreground mb-2">{value.title}</h3>
-                <p className="text-muted-foreground text-sm">{value.description}</p>
+              <div key={index} style={{backgroundImage:`url(${value.icon})`}} className="bg-card h-70 bg-cover bg-center border-border p-6 pt-20 text-center hover:shadow-lg transition-shadow flex-col items-center justify-center">
+                <h2 className="text-2xl font-bold text-white mb-2">{value.title}</h2>
+                <p className="text-white text-sm">{value.description}</p>
               </div>
             ))}
           </div>

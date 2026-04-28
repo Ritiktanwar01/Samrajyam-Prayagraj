@@ -29,14 +29,15 @@ export default function Home() {
       <section className="relative h-[500px] md:h-[600px] lg:h-[700px] w-full bg-gradient-to-r from-primary to-primary/80 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <Image 
+          {/* <Image 
             src="/images/view.jpeg" 
             alt="Samrajyam Prayagraj Project" 
             width={1200}
             height={700}
-            className="object-cover opacity-40"
+            className="object-cover opacity-40 w-full h-full"
             priority
-          />
+          /> */}
+          <video src="/videos/video.mp4" autoPlay muted className="object-cover opacity-40 w-full h-full"></video>
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent" />
         </div>
 
@@ -73,7 +74,7 @@ export default function Home() {
 
       <Search />
 
-      <Button className='flex items-center justify-center w-16 h-16 fixed right-2 top-[70%] bg-accent'>
+      <Button onClick={()=> {window.location.href= "tel:9109107012"}} className='flex items-center justify-center w-16 h-16 fixed right-2 top-[70%] bg-accent'>
         <Phone  size={88} width={22} height={22} className='size-6'/>
       </Button>
 
